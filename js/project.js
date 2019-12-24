@@ -14,6 +14,7 @@ $(document).ready(() => {
         minusDataIngredient();
     });
     $('.collapsible').collapsible();
+    $('.materialboxed').materialbox();
 });
 //this is ajax for reques api
 function requestApi() {
@@ -42,7 +43,7 @@ function getRecipe(rechipeId) {
             var step = element.instructions;
             $('#sum').val(element.nbGuests);//for getdata from guest into intput
             getDataVal = $('#sum').val();
-// this is code for cut step in api
+            // this is code for cut step in api
             var cutStep = step.split('<step>')
             var resultStep = "";
             for (let i = 1; i < cutStep.length; i++) {
@@ -62,7 +63,7 @@ function getRecipe(rechipeId) {
 
 
 //this is function for update recipe. sum from increas ingedients
-var updateDataRecipe = (rechipeId, sum) => { 
+var updateDataRecipe = (rechipeId, sum) => {
     alldata.forEach(myItem => {
         if (myItem.id == rechipeId) {
             updateIngredient(myItem.ingredients, sum);
